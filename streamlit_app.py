@@ -13,7 +13,7 @@ st.header('Which Movie Genre performs best at the box office?')
 
 # Load data
 df = pd.read_csv('data/movies_genres_summary.csv')
-df['year'] = pd.to_datetime(df['year'])
+df['year'] = pd.to_datetime(df['year']).dt.year.astype('int')
 
 # Genres selection
 genres_list = df.genre.unique()
