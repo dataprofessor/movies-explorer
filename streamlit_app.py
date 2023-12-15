@@ -14,6 +14,7 @@ st.subheader('Which Movie Genre performs best at the box office?')
 
 # Load data
 df = pd.read_csv('data/movies_genres_summary.csv')
+df.year = df.year.astype(int)
 
 # Placeholder
 placeholder1 = st.empty()
@@ -32,8 +33,6 @@ year_selection_list = list(np.arange(year_selection[0], year_selection[1]+1))
 # df.year.isin(year_selection_list)
 df_selection = df[df.year.isin([2002,2003])]
 
-st.write(df.year[0])
-st.write(year_selection_list[0])
 
 # Display DataFrame
 with placeholder1:
