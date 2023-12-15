@@ -27,7 +27,7 @@ genres_selection = st.multiselect('Select genres', genres_list, ['Action', 'Adve
 year_list = df.year.unique()
 year_selection = st.slider('Select year duration', 1986, 2006, (2001, 2006))
 
-# df_selection = df[ df.genre.isin(genres_selection) ]
+df_selection = df[ df.genre.isin(genres_selection) ]
 
 np.arange(year_selection[0], year_selection[1])
 
