@@ -15,17 +15,15 @@ st.header('Which Movie Genre performs best at the box office?')
 df = pd.read_csv('data/movies_genres_summary.csv')
 
 # Input widgets
-col = st.columns((2, 1.5))
 ## Genres selection
-with col[0]:
-    genres_list = df.genre.unique()
-    genres_selection = st.multiselect('Select genres', genres_list, ['Action', 'Adventure', 'Biography', 'Comedy', 'Drama', 'Horror'])
-    df_selection = df[df.genre.isin(genres_selection)]
+genres_list = df.genre.unique()
+genres_selection = st.multiselect('Select genres', genres_list, ['Action', 'Adventure', 'Biography', 'Comedy', 'Drama', 'Horror'])
+df_selection = df[df.genre.isin(genres_selection)]
+
 ## Year selection
-with col[1]:
-    year_list = df.year.unique()
-    year_selection = st.slider('Select year duration', 1986, 2006, (2001, 2006))
-    # year_selection = st.slider(int(year_list.min()), int(year_list.max()), (int(year_list[-10]), int(year_list[-1])))
+year_list = df.year.unique()
+year_selection = st.slider('Select year duration', 1986, 2006, (2001, 2006))
+# year_selection = st.slider(int(year_list.min()), int(year_list.max()), (int(year_list[-10]), int(year_list[-1])))
 
 # Display DataFrame
 df_selection
