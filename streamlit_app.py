@@ -12,7 +12,7 @@ st.info('This demo shows the use of Pandas for loading data as DataFrames and Al
 st.header('Which Movie Genre performs best at the box office?')
 
 # Load data
-df = pd.read_csv('data/movies_genres_summary.csv')
+df = pd.read_csv('data/movies_genres_summary.csv', index_col=False)
 
 # Placeholder
 placeholder1 = st.empty()
