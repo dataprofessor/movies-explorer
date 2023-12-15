@@ -29,9 +29,10 @@ year_selection = st.slider('Select year duration', 1986, 2006, (2002, 2006))
 year_selection_list = list(np.arange(year_selection[0], year_selection[1]+1))
 
 # df.genre.isin(genres_selection)
-df_selection = df[ df.year.isin(year_selection_list) ]
+# df.year.isin(year_selection_list)
+df_selection = df[ df.genre.isin(genres_selection) ]
 
-
+df.year
 
 # Display DataFrame
 with placeholder1:
