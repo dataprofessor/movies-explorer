@@ -1,4 +1,5 @@
 import streamlit as st
+import numpy as np
 import pandas as pd
 
 st.set_page_config(
@@ -28,7 +29,7 @@ year_selection = st.slider('Select year duration', 1986, 2006, (2001, 2006))
 
 # df_selection = df[ df.genre.isin(genres_selection) ]
 
-year_selection
+np.arange(year_selection[0], year_selection[1])
 
 # Display DataFrame
 with placeholder1:
