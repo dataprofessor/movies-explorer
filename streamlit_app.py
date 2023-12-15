@@ -25,6 +25,8 @@ year_list = df.year.unique()
 year_selection = st.slider('Select year duration', 1986, 2006, (2001, 2006))
 # year_selection = st.slider(int(year_list.min()), int(year_list.max()), (int(year_list[-10]), int(year_list[-1])))
 
+st.header()
+
 # Display DataFrame
 df_selection
 
