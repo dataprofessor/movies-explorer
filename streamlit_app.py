@@ -31,7 +31,7 @@ year_selection_list = list(np.arange(year_selection[0], year_selection[1]+1))
 
 # df.genre.isin(genres_selection)
 # df.year.isin(year_selection_list)
-df_selection = df[df.year.isin([2002,2003])]
+df_selection = df[df.year.isin([2002])]
 
 
 # Display DataFrame
