@@ -1,6 +1,10 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(
+    page_title="Exploratory Data Analysis",
+    page_icon="📊")
+
 st.title('📊 Exploratory Data Analysis')
 
 st.info('This demo shows the use of Pandas for loading data as DataFrames and Altair for chart creation.')
