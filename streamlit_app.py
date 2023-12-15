@@ -29,7 +29,7 @@ year_selection = st.slider('Select year duration', 1986, 2006, (2001, 2006))
 
 df_selection = df[ df.genre.isin(genres_selection) ]
 
-st.write(np.arange(year_selection[0], year_selection[1]))
+st.write(np.arange(year_selection[0], year_selection[1]+1))
 
 # Display DataFrame
 with placeholder1:
