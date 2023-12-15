@@ -31,7 +31,7 @@ year_selection = st.slider('Select year duration', 1986, 2006, (2001, 2006))
 
 # Display DataFrame
 with placeholder1:
-    df_selection
+    df_editor = st.data_editor(df_selection)
 
 # Display chart
 with placeholder2:
