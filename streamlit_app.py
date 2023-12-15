@@ -14,6 +14,10 @@ st.header('Which Movie Genre performs best at the box office?')
 # Load data
 df = pd.read_csv('data/movies_genres_summary.csv')
 
+# Placeholder
+placeholder1 = st.empty()
+placeholder2 = st.empty()
+
 # Input widgets
 ## Genres selection
 genres_list = df.genre.unique()
@@ -25,10 +29,10 @@ year_list = df.year.unique()
 year_selection = st.slider('Select year duration', 1986, 2006, (2001, 2006))
 # year_selection = st.slider(int(year_list.min()), int(year_list.max()), (int(year_list[-10]), int(year_list[-1])))
 
-st.header('', divider='rainbow')
-
 # Display DataFrame
-df_selection
+with placeholder1:
+    df_selection
 
 # Display chart
-st.line_chart(df_selection, x='year', y='gross', color='genre')
+with placeholder2:
+    st.line_chart(df_selection, x='year', y='gross', color='genre')
