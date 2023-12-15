@@ -24,7 +24,7 @@ with col[0]:
 ## Year selection
 with col[1]:
     year_list = df.year.unique()
-    year_selection = st.slider(year_list.min(), year_list.max(), (year_list[-10], year_list[-1]))
+    year_selection = st.slider(int(year_list.min()), int(year_list.max()), (int(year_list[-10]), int(year_list[-1])))
 
 # Display DataFrame
 df_selection
