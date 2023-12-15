@@ -43,8 +43,8 @@ with placeholder1:
 with placeholder2:
     #st.line_chart(df_selection, x='year', y='gross', color='genre')
     chart = alt.Chart(df_selection).mark_line().encode(
-        x='year',
-        y='gross',
-        color='genre'
+        x='year:N',
+        y='gross:Q',
+        color='genre:N'
     )
     st.altair_chart(chart, use_container_width=True)
