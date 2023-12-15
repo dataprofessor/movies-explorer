@@ -33,10 +33,11 @@ year_selection_list = list(np.arange(year_selection[0], year_selection[1]+1))
 # df.genre.isin(genres_selection)
 # df.year.isin(year_selection_list)
 df_selection = df[df.genre.isin(genres_selection) & df['year'].isin(year_selection_list)]
+reshaped_df = df_selection.pivot_table(index='year', columns='genre', values='gross', aggfunc='sum', fill_value=0)
 
 # Display DataFrame
 with placeholder1:
-    df_editor = st.data_editor(df_selection, height=212, use_container_width=True, hide_index=True)
+    df_editor = st.data_editor(reshaped_df, height=212, use_container_width=True, hide_index=True)
 
 # Display chart
 with placeholder2:
@@ -48,5 +49,3 @@ with placeholder2:
     )
     st.altair_chart(chart, use_container_width=True)
 
-reshaped_df = df_selection.pivot_table(index='year', columns='genre', values='gross', aggfunc='sum', fill_value=0)
-reshaped_df
