@@ -40,5 +40,5 @@ with placeholder1:
     df_selection
     
 # Display chart
-#with placeholder2:
-#    st.line_chart(df_selection, x='year', y='gross', color='genre')
+with placeholder2:
+    st.line_chart(df_selection, x='year', y='gross', color='genre')
