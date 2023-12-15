@@ -33,6 +33,7 @@ year_selection_list = list(np.arange(year_selection[0], year_selection[1]+1))
 df_selection = df[df.genre.isin(genres_selection)]
 
 st.write(df.year[0])
+st.write(year_selection_list[0])
 
 # Display DataFrame
 with placeholder1:
