@@ -19,4 +19,8 @@ genres_list = df.genre.unique()
 genres_selection = st.multiselect('Select genres', genres_list, ['Action', 'Adventure', 'Biography', 'Comedy', 'Drama', 'Horror'])
 df_selection = df[df.genre.isin(genres_selection)]
 
+# Display DataFrame
 df_selection
+
+# Display chart
+st.line_chart(df_selection, x='year', y='gross', color='genre')
