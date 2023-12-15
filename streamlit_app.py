@@ -36,9 +36,8 @@ df_selection = df[df.genre.isin(genres_selection) & df['year'].isin(year_selecti
 
 # Display DataFrame
 with placeholder1:
-    # df_editor = st.data_editor(df_selection, height=212, use_container_width=True, hide_index=True)
-    df_selection
-    df_selection.genre
+    df_editor = st.data_editor(df_selection, height=212, use_container_width=True, hide_index=True)
+
 # Display chart
 #with placeholder2:
 #    st.line_chart(df_selection, x='year', y='gross', color='genre')
