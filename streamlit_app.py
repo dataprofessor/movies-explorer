@@ -15,7 +15,7 @@ st.header('Which Movie Genre performs best at the box office?')
 df = pd.read_csv('data/movies_genres_summary.csv')
 
 # Input widgets
-col = st.columns((2,1))
+col = st.columns((2, 1.5))
 ## Genres selection
 with col[0]:
     genres_list = df.genre.unique()
