@@ -30,7 +30,7 @@ year_selection_list = list(np.arange(year_selection[0], year_selection[1]+1))
 
 # df.genre.isin(genres_selection)
 # df.year.isin(year_selection_list)
-df_selection = df.query(df.year<=2006)
+df_selection = df.query(df.year<='2006')
 
 df.year
 
