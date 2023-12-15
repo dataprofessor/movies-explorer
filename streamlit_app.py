@@ -26,7 +26,7 @@ genres_selection = st.multiselect('Select genres', genres_list, ['Action', 'Adve
 year_list = df.year.unique()
 year_selection = st.slider('Select year duration', 1986, 2006, (2001, 2006))
 
-df_selection = df[ (df.genre.isin(genres_selection)) & (df.year.isin(year_selection)) ]
+df_selection = df[ (df.year.isin(year_selection)) ]
 
 
 # Display DataFrame
