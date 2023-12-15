@@ -22,12 +22,12 @@ placeholder2 = st.empty()
 ## Genres selection
 genres_list = df.genre.unique()
 genres_selection = st.multiselect('Select genres', genres_list, ['Action', 'Adventure', 'Biography', 'Comedy', 'Drama', 'Horror'])
-df_selection = df[df.genre.isin(genres_selection)]
-
 ## Year selection
 year_list = df.year.unique()
 year_selection = st.slider('Select year duration', 1986, 2006, (2001, 2006))
-# year_selection = st.slider(int(year_list.min()), int(year_list.max()), (int(year_list[-10]), int(year_list[-1])))
+
+df_selection = df[df.genre.isin(genres_selection) and df.year.isin(year_selection)]
+
 
 # Display DataFrame
 with placeholder1:
