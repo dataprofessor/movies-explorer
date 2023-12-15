@@ -37,7 +37,7 @@ reshaped_df = df_selection.pivot_table(index='year', columns='genre', values='gr
 
 # Display DataFrame
 with placeholder1:
-    df_editor = st.data_editor(reshaped_df, height=212, use_container_width=True, hide_index=True)
+    df_editor = st.data_editor(reshaped_df, height=212, use_container_width=True)
 
 # Display chart
 with placeholder2:
