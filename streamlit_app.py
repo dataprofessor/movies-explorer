@@ -39,7 +39,30 @@ reshaped_df = df_selection.pivot_table(index='year', columns='genre', values='gr
 with placeholder1:
     df_editor = st.dataframe(reshaped_df, height=212, use_container_width=True,
                              column_config={"year": st.column_config.TextColumn("Year"),
-                                            "Action": st.column_config.NumberColumn(format="$%d")
+                                            "Action": st.column_config.NumberColumn(format="$%d"),
+                                            "Adventure": st.column_config.NumberColumn(format="$%d"),
+                                            "Animation": st.column_config.NumberColumn(format="$%d"),
+                                            "Biography": st.column_config.NumberColumn(format="$%d"),
+                                            "Comedy": st.column_config.NumberColumn(format="$%d"),
+                                            "Crime": st.column_config.NumberColumn(format="$%d"),
+                                            "Documentary": st.column_config.NumberColumn(format="$%d"),
+                                            "Drama": st.column_config.NumberColumn(format="$%d"),
+                                            "Family": st.column_config.NumberColumn(format="$%d"),
+                                            "Fantasy": st.column_config.NumberColumn(format="$%d"),
+                                            "Film-Noir": st.column_config.NumberColumn(format="$%d"),
+                                            "History": st.column_config.NumberColumn(format="$%d"),
+                                            "Horror": st.column_config.NumberColumn(format="$%d"),
+                                            "Music": st.column_config.NumberColumn(format="$%d"),
+                                            "Musical": st.column_config.NumberColumn(format="$%d"),
+                                            "Mystery": st.column_config.NumberColumn(format="$%d"),
+                                            "News": st.column_config.NumberColumn(format="$%d"),
+                                            "Romance": st.column_config.NumberColumn(format="$%d"),
+                                            "Sci-Fi": st.column_config.NumberColumn(format="$%d"),
+                                            "Short": st.column_config.NumberColumn(format="$%d"),
+                                            "Sport": st.column_config.NumberColumn(format="$%d"),
+                                            "Thriller": st.column_config.NumberColumn(format="$%d"),
+                                            "War": st.column_config.NumberColumn(format="$%d"),
+                                            "Western": st.column_config.NumberColumn(format="$%d")
                                            })
 
 # Display chart
