@@ -40,6 +40,7 @@ genres_selection = st.multiselect('Select genres', genres_list, ['Action', 'Adve
 
 df_selection = df[df.genre.isin(genres_selection)] # & df['year'].isin(year_selection_list)
 reshaped_df = df_selection.pivot_table(index='year', columns='genre', values='gross', aggfunc='sum', fill_value=0)
+reshaped_df = reshaped_df.sort_values(by='year', ascending=False)
 
 # Placeholder
 placeholder1 = st.empty()
