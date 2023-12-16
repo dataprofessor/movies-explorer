@@ -63,7 +63,7 @@ with placeholder1:
     #df_editor_selection = df_editor[df_editor['Year'].isin(year_selection_list)]
 
 
-df_chart = pd.melt(df_editor.reset_index(), id_vars='year', var_name='year', value_name='gross')
+df_chart = pd.melt(df_editor.reset_index(), id_vars='year', var_name='genre', value_name='gross')
 
 # Display chart
 with placeholder2:
