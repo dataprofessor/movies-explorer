@@ -21,6 +21,21 @@ df.year = df.year.astype('int')
 placeholder1 = st.empty()
 placeholder2 = st.empty()
 
+# Display DataFrame
+with placeholder1:
+    df_editor = st.dataframe(reshaped_df, height=212, use_container_width=True,
+                             column_config={"year": st.column_config.TextColumn("Year")})
+
+# Display chart
+with placeholder2:
+    #st.line_chart(df_selection, x='year', y='gross', color='genre')
+    chart = alt.Chart(df_selection).mark_line().encode(
+        x=alt.X('year:N', title='Year'),
+        y=alt.Y('gross:Q', title='Gross earnings ($)'),
+        color='genre:N'
+    )
+    st.altair_chart(chart, use_container_width=True)
+
 # Input widgets
 ## Genres selection
 genres_list = df.genre.unique()
@@ -35,20 +50,5 @@ year_selection_list = list(np.arange(year_selection[0], year_selection[1]+1))
 df_selection = df[df.genre.isin(genres_selection) & df['year'].isin(year_selection_list)]
 reshaped_df = df_selection.pivot_table(index='year', columns='genre', values='gross', aggfunc='sum', fill_value=0)
 
-# Display DataFrame
-with placeholder1:
-    df_editor = st.dataframe(reshaped_df, height=212, use_container_width=True,
-                             column_config={"year": st.column_config.TextColumn("Year"),
 
-                                           })
-
-# Display chart
-with placeholder2:
-    #st.line_chart(df_selection, x='year', y='gross', color='genre')
-    chart = alt.Chart(df_selection).mark_line().encode(
-        x=alt.X('year:N', title='Year'),
-        y=alt.Y('gross:Q', title='Gross earnings ($)'),
-        color='genre:N'
-    )
-    st.altair_chart(chart, use_container_width=True)
 
