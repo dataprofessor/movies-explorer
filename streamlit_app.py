@@ -62,12 +62,13 @@ with placeholder1:
     #year_selection_list = list(np.arange(year_list[0], year_list[1]+1))
     #df_editor_selection = df_editor[df_editor['Year'].isin(year_selection_list)]
 
-st.write(df_editor.reset_index())
+
+df_chart = pd.melt(df_editor.reset_index(), id_vars='year', var_name='year', value_name='gross')
 
 # Display chart
 with placeholder2:
-    chart = alt.Chart(reshaped_df).mark_line().encode(
-        x=alt.X('Year:N', title='Year'),
+    chart = alt.Chart(df_chart).mark_line().encode(
+        x=alt.X('year:N', title='Year'),
         y=alt.Y('gross:Q', title='Gross earnings ($)'),
         color='genre:N'
     )
