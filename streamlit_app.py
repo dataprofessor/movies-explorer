@@ -7,6 +7,18 @@ st.set_page_config(
     page_title="Exploratory Data Analysis",
     page_icon="📊")
 
+# CSS styling
+st.markdown("""
+<style>
+
+[data-testid="block-container"] {
+    padding-top: 1rem;
+    padding-bottom: 0rem;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 st.title('📊 Exploratory Data Analysis')
 
 st.info('This demo shows the use of Pandas for loading data as DataFrames and Altair for chart creation.')
