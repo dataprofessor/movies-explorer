@@ -63,6 +63,7 @@ with placeholder1:
     #df_editor_selection = df_editor[df_editor['Year'].isin(year_selection_list)]
 
 df_editor.columns
+df_editor.index
 
 # Display chart
 with placeholder2:
