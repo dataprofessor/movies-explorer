@@ -38,16 +38,14 @@ reshaped_df = df_selection.pivot_table(index='year', columns='genre', values='gr
 # Display DataFrame
 with placeholder1:
     df_editor = st.dataframe(reshaped_df, height=212, use_container_width=True,
-                             column_config={"year": st.column_config.TextColumn("Year"),
-                                            "gross": st.column_config.NumberColumn("Gross earnings in dollars")
-                                           })
+                             column_config={"year": st.column_config.TextColumn("Year")})
 
 # Display chart
 with placeholder2:
     #st.line_chart(df_selection, x='year', y='gross', color='genre')
     chart = alt.Chart(df_selection).mark_line().encode(
-        x='year:N',
-        y='gross:Q',
+        x=alt.X('year:N', title='Year'),
+        y=alt.Y('gross:Q', title='Gross earnings in dollars')
         color='genre:N'
     )
     st.altair_chart(chart, use_container_width=True)
