@@ -8,7 +8,7 @@ st.set_page_config(
     page_title="Exploratory Data Analysis",
     page_icon="📊")
 st.title('📊 Exploratory Data Analysis')
-st.info('This demo shows the use of Pandas for data wrangling, Altair for chart creation and editable dataframe for interacting with data.')
+# st.info('This demo shows the use of Pandas for data wrangling, Altair for chart creation and editable dataframe for interacting with data.')
 
 # CSS styling
 st.markdown("""
