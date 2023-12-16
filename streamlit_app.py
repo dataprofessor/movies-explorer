@@ -57,9 +57,15 @@ with placeholder1:
                                column_config={"year": st.column_config.TextColumn("Year")},
                                num_rows="dynamic")
 
+    ## Year selection
+    year_list = df_editor.year.unique()
+    #year_selection = st.slider('Select year duration', 1986, 2006, (2012, 2016))
+    year_selection_list = list(np.arange(year_list[0], year_list[1]+1))
+    df_editor_selection = df_editor[df_editor['year'].isin(year_selection_list)]
+
 # Display chart
 with placeholder2:
-    chart = alt.Chart(df_editor).mark_line().encode(
+    chart = alt.Chart(df_editor_selection).mark_line().encode(
         x=alt.X('year:N', title='Year'),
         y=alt.Y('gross:Q', title='Gross earnings ($)'),
         color='genre:N'
