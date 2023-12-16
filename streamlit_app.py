@@ -45,7 +45,7 @@ reshaped_df = reshaped_df.sort_values(by='year', ascending=False)
 # Create a Selection boolean list
 num_rows = len(reshaped_df)
 boolean_list = [True] * min(5, num_rows) + [False] * max(0, num_rows - 5)
-reshaped_df.insert(0, 'selection', pd.Series(boolean_list))
+reshaped_df = reshaped_df.insert(0, 'selection', pd.Series(boolean_list))
 
 # Placeholder
 placeholder1 = st.empty()
