@@ -22,7 +22,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.subheader('Which Movie Genre performs best ($) at the box office?')
+st.subheader('Which Movie Genre performs ($) best at the box office?')
 
 # Load data
 df = pd.read_csv('data/movies_genres_summary.csv')
