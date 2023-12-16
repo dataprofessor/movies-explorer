@@ -27,7 +27,7 @@ genres_list = df.genre.unique()
 genres_selection = st.multiselect('Select genres', genres_list, ['Action', 'Adventure', 'Biography', 'Comedy', 'Drama', 'Horror'])
 ## Year selection
 year_list = df.year.unique()
-year_selection = st.slider('Select year duration', 1986, 2006, (2002, 2006))
+year_selection = st.slider('Select year duration', 1986, 2006, (2012, 2016))
 year_selection_list = list(np.arange(year_selection[0], year_selection[1]+1))
 
 # df.genre.isin(genres_selection)
@@ -38,7 +38,9 @@ reshaped_df = df_selection.pivot_table(index='year', columns='genre', values='gr
 # Display DataFrame
 with placeholder1:
     df_editor = st.dataframe(reshaped_df, height=212, use_container_width=True,
-                             column_config={"year": st.column_config.TextColumn("Year")})
+                             column_config={"year": st.column_config.TextColumn("Year"),
+                                            "gross": st.column_config.NumberColumn("Gross earnings in dollars")
+                                           })
 
 # Display chart
 with placeholder2:
