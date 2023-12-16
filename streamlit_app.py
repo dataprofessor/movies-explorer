@@ -62,6 +62,8 @@ with placeholder1:
     #year_selection_list = list(np.arange(year_list[0], year_list[1]+1))
     #df_editor_selection = df_editor[df_editor['Year'].isin(year_selection_list)]
 
+df_editor.columns
+
 # Display chart
 with placeholder2:
     chart = alt.Chart(reshaped_df).mark_line().encode(
