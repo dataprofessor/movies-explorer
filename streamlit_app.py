@@ -11,7 +11,7 @@ st.title('📊 Exploratory Data Analysis')
 
 st.info('This demo shows the use of Pandas for loading data as DataFrames and Altair for chart creation.')
 
-st.subheader('Which Movie Genre performs best at the box office?')
+st.subheader('Which Movie Genre performs best ($) at the box office?')
 
 # Load data
 df = pd.read_csv('data/movies_genres_summary.csv')
