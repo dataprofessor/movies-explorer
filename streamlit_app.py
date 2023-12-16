@@ -52,5 +52,5 @@ chart = alt.Chart(df_chart).mark_line().encode(
         x=alt.X('year:N', title='Year'),
         y=alt.Y('gross:Q', title='Gross earnings ($)'),
         color='genre:N'
-        ).properties(height=290)
+        ).properties(height=320)
 st.altair_chart(chart, use_container_width=True)
