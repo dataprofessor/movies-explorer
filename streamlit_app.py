@@ -47,7 +47,7 @@ with placeholder2:
     #st.line_chart(df_selection, x='year', y='gross', color='genre')
     chart = alt.Chart(df_selection).mark_line().encode(
         x=alt.X('year:N', title='Year'),
-        y=alt.Y('gross:Q', title='Gross earnings in dollars'),
+        y=alt.Y('gross:Q', title='Gross earnings ($)'),
         color='genre:N'
     )
     st.altair_chart(chart, use_container_width=True)
