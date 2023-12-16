@@ -43,9 +43,9 @@ reshaped_df = df_selection.pivot_table(index='year', columns='genre', values='gr
 reshaped_df = reshaped_df.sort_values(by='year', ascending=False)
 
 # Create a Selection boolean list
-num_rows = len(reshaped_df)
-boolean_list = [True] * min(5, num_rows) + [False] * max(0, num_rows - 5)
-reshaped_df.insert(0, 'selection', pd.Series(boolean_list))
+#num_rows = len(reshaped_df)
+#boolean_list = [True] * min(5, num_rows) + [False] * max(0, num_rows - 5)
+#reshaped_df.insert(0, 'selection', pd.Series(boolean_list))
 
 # Placeholder
 placeholder1 = st.empty()
@@ -54,7 +54,8 @@ placeholder2 = st.empty()
 # Display DataFrame
 with placeholder1:
     df_editor = st.data_editor(reshaped_df, height=212, use_container_width=True,
-                             column_config={"year": st.column_config.TextColumn("Year")})
+                               column_config={"year": st.column_config.TextColumn("Year")},
+                               num_rows="dynamic")
 
 # Display chart
 with placeholder2:
