@@ -4,7 +4,7 @@ import pandas as pd
 import altair as alt
 
 # Page title
-st.set_page_config(page_title="Exploratory Data Analysis", page_icon="📊")
+st.set_page_config(page_title='Exploratory Data Analysis', page_icon='📊', layout='wide')
 st.title('📊 Exploratory Data Analysis')
 st.info('This app shows the use of Pandas for data wrangling, Altair for chart creation and editable dataframe for data interaction.')
 
@@ -27,15 +27,20 @@ df = pd.read_csv('data/movies_genres_summary.csv')
 df.year = df.year.astype('int')
 
 # Input widgets
-## Genres selection
-genres_list = df.genre.unique()
-genres_selection = st.multiselect('Select genres', genres_list, ['Action', 'Adventure', 'Biography', 'Comedy', 'Drama', 'Horror'])
-## Year selection
-#year_list = df.year.unique()
-#year_selection = st.slider('Select year duration', 1986, 2006, (2012, 2016))
-#year_selection_list = list(np.arange(year_selection[0], year_selection[1]+1))
+col = st.columns((2,1))
 
-df_selection = df[df.genre.isin(genres_selection)] # & df['year'].isin(year_selection_list)
+## Genres selection
+with col[0]:
+    genres_list = df.genre.unique()
+    genres_selection = st.multiselect('Select genres', genres_list, ['Action', 'Adventure', 'Biography', 'Comedy', 'Drama', 'Horror'])
+
+## Year selection
+with col[1]:
+    year_list = df.year.unique()
+    year_selection = st.slider('Select year duration', 1986, 2006, (2012, 2016))
+    year_selection_list = list(np.arange(year_selection[0], year_selection[1]+1))
+
+df_selection = df[df.genre.isin(genres_selection) & df['year'].isin(year_selection_list)]
 reshaped_df = df_selection.pivot_table(index='year', columns='genre', values='gross', aggfunc='sum', fill_value=0)
 reshaped_df = reshaped_df.sort_values(by='year', ascending=False)
 
