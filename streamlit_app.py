@@ -27,7 +27,7 @@ df = pd.read_csv('data/movies_genres_summary.csv')
 df.year = df.year.astype('int')
 
 # Input widgets
-col = st.columns((2,1))
+col = st.columns(2)
 
 ## Genres selection
 with col[0]:
