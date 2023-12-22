@@ -27,18 +27,14 @@ df = pd.read_csv('data/movies_genres_summary.csv')
 df.year = df.year.astype('int')
 
 # Input widgets
-col = st.columns(2)
-
 ## Genres selection
-with col[0]:
-    genres_list = df.genre.unique()
-    genres_selection = st.multiselect('Select genres', genres_list, ['Action', 'Adventure', 'Biography', 'Comedy', 'Drama', 'Horror'])
+genres_list = df.genre.unique()
+genres_selection = st.multiselect('Select genres', genres_list, ['Action', 'Adventure', 'Biography', 'Comedy', 'Drama', 'Horror'])
 
 ## Year selection
-with col[1]:
-    year_list = df.year.unique()
-    year_selection = st.slider('Select year duration', 1986, 2006, (2012, 2016))
-    year_selection_list = list(np.arange(year_selection[0], year_selection[1]+1))
+year_list = df.year.unique()
+year_selection = st.slider('Select year duration', 1986, 2006, (2012, 2016))
+year_selection_list = list(np.arange(year_selection[0], year_selection[1]+1))
 
 df_selection = df[df.genre.isin(genres_selection) & df['year'].isin(year_selection_list)]
 reshaped_df = df_selection.pivot_table(index='year', columns='genre', values='gross', aggfunc='sum', fill_value=0)
