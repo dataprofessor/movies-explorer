@@ -40,20 +40,18 @@ df_selection = df[df.genre.isin(genres_selection) & df['year'].isin(year_selecti
 reshaped_df = df_selection.pivot_table(index='year', columns='genre', values='gross', aggfunc='sum', fill_value=0)
 reshaped_df = reshaped_df.sort_values(by='year', ascending=False)
 
-col = st.columns(2)
 
 # Display DataFrame
-with col[0]:
-    df_editor = st.data_editor(reshaped_df, height=212, use_container_width=True,
-                                   column_config={"year": st.column_config.TextColumn("Year")},
-                                   num_rows="dynamic")
-    df_chart = pd.melt(df_editor.reset_index(), id_vars='year', var_name='genre', value_name='gross')
+
+df_editor = st.data_editor(reshaped_df, height=212, use_container_width=True,
+                            column_config={"year": st.column_config.TextColumn("Year")},
+                            num_rows="dynamic")
+df_chart = pd.melt(df_editor.reset_index(), id_vars='year', var_name='genre', value_name='gross')
 
 # Display chart
-with col[1]:
-    chart = alt.Chart(df_chart).mark_line().encode(
+chart = alt.Chart(df_chart).mark_line().encode(
             x=alt.X('year:N', title='Year'),
             y=alt.Y('gross:Q', title='Gross earnings ($)'),
             color='genre:N'
             ).properties(height=320)
-    st.altair_chart(chart, use_container_width=True)
+st.altair_chart(chart, use_container_width=True)
