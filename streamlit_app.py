@@ -8,8 +8,11 @@ st.set_page_config(page_title='Interactive Dashboard', page_icon='📊')
 st.title('📊 Interactive Dashboard')
 
 with st.expander('About this app'):
+  st.markdown('**What can this app do**')
   st.info('This app shows the use of Pandas for data wrangling, Altair for chart creation and editable dataframe for data interaction.')
-
+  st.markdown('**How to use the app**')
+  st.warning('To engage with the app, (1) select genres of your interest in the drop-down selection box and then (2) select the year duration from the slider widget.')
+  
 st.subheader('Which Movie Genre performs ($) best at the box office?')
 
 # Load data
@@ -23,7 +26,7 @@ genres_selection = st.multiselect('Select genres', genres_list, ['Action', 'Adve
 
 ## Year selection
 year_list = df.year.unique()
-year_selection = st.slider('Select year duration', 1986, 2006, (2012, 2016))
+year_selection = st.slider('Select year duration', 1986, 2006, (2000, 2016))
 year_selection_list = list(np.arange(year_selection[0], year_selection[1]+1))
 
 df_selection = df[df.genre.isin(genres_selection) & df['year'].isin(year_selection_list)]
