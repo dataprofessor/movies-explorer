@@ -8,18 +8,6 @@ st.set_page_config(page_title='Interactive Dashboard', page_icon='📊')
 st.title('📊 Interactive Dashboard')
 st.info('This app shows the use of Pandas for data wrangling, Altair for chart creation and editable dataframe for data interaction.')
 
-# CSS styling
-st.markdown("""
-<style>
-
-[data-testid="block-container"] {
-    padding-top: 1.2rem;
-    padding-bottom: 1.2rem;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
 st.subheader('Which Movie Genre performs ($) best at the box office?')
 
 # Load data
