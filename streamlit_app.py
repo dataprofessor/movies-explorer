@@ -4,8 +4,8 @@ import pandas as pd
 import altair as alt
 
 # Page title
-st.set_page_config(page_title='Exploratory Data Analysis', page_icon='📊')
-st.title('📊 Exploratory Data Analysis')
+st.set_page_config(page_title='Interactive Dashboard', page_icon='📊')
+st.title('📊 Interactive Dashboard')
 st.info('This app shows the use of Pandas for data wrangling, Altair for chart creation and editable dataframe for data interaction.')
 
 # CSS styling
