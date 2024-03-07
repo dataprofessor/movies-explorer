@@ -51,6 +51,27 @@ chart = alt.Chart(df_chart).mark_line().encode(
 st.altair_chart(chart, use_container_width=True)
 
 with st.popover('Chat with the data'):
+  def create_chat(state_key: str, chat_container, position="inline"):
+    if state_key not in st.session_state:
+        st.session_state[state_key] = []
+
+    for message in st.session_state[state_key]:
+        with chat_container.chat_message(message["role"]):
+            st.markdown(message["content"])
+    container = st.container() if position == "inline" else st._main
+    if prompt := container.chat_input(
+        "Chat with me", key=f"{state_key}_input"
+    ):
+        # Display user message in chat message container
+        chat_container.chat_message("user").markdown(prompt)
+        st.session_state[state_key].append({"role": "user", "content": prompt})
+
+        chat_container.chat_message("assistant").markdown(f"Echo: {prompt}")
+        st.session_state[state_key].append(
+            {"role": "assistant", "content": f"Echo: {prompt}"}
+        )
+
+with st.popover('Chat with the data'):
   st.markdown("**Find additional insights through chat**")
   st.markdown("##")
   # Initialize chat history
