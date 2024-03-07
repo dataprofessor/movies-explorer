@@ -51,8 +51,8 @@ chart = alt.Chart(df_chart).mark_line().encode(
 st.altair_chart(chart, use_container_width=True)
 
 with st.popover('Chat with the data'):
-  container(height=250)
   st.markdown("**Chat with the data**")
+  st.markdown("##")
   # Initialize chat history
   if "messages" not in st.session_state:
     st.session_state.messages = []
