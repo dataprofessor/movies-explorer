@@ -69,7 +69,7 @@ with st.popover('Chat with the data'):
       # Add user message to chat history
       st.session_state.messages.append({"role": "user", "content": prompt})
       response = f"Adventure is the highest grossing category"
-    # Display assistant response in chat message container
+   # Display assistant response in chat message container
     with st.chat_message("assistant"):
         st.markdown(response)
     # Add assistant response to chat history
