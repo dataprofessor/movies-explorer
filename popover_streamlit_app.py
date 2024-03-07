@@ -51,23 +51,24 @@ chart = alt.Chart(df_chart).mark_line().encode(
 st.altair_chart(chart, use_container_width=True)
 
 with st.popover('Chat with the data'):
-  def create_chat(state_key: str, chat_container,):
-    if state_key not in st.session_state:
-        st.session_state[state_key] = []
-
-    for message in st.session_state[state_key]:
-        with chat_container.chat_message(message["role"]):
-            st.markdown(message["content"])
-    container = st.container(100) 
-    if prompt := container.chat_input(
-        "Chat with me", key=f"{state_key}_input"
-    ):
-        # Display user message in chat message container
-        chat_container.chat_message("user").markdown(prompt)
-        st.session_state[state_key].append({"role": "user", "content": prompt})
-
-        chat_container.chat_message("assistant").markdown(f"Echo: {prompt}")
-        st.session_state[state_key].append(
-            {"role": "assistant", "content": f"Echo: {prompt}"}
-        )
-
+  st.markdown("**Find additional insights through chat**")
+  st.markdown("##")
+  # Initialize chat history
+  if "messages" not in st.session_state:
+    st.session_state.messages = []
+  # Display chat messages from history on app rerun
+  for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+  # React to user input
+  if prompt := st.chat_input("Do you have any questions about the data?"):
+    # Display user message in chat message container
+    st.chat_message("user").markdown(prompt)
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    response = f"Adventure is the highest grossing category"
+    # Display assistant response in chat message container
+    with st.chat_message("assistant"):
+        st.markdown(response)
+    # Add assistant response to chat history
+    st.session_state.messages.append({"role": "assistant", "content": response})
