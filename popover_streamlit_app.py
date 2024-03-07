@@ -20,7 +20,7 @@ st.subheader('Which Movie Genre performs ($) best at the box office?')
 df = pd.read_csv('data/movies_genres_summary.csv')
 df.year = df.year.astype('int')
 
-with st.popover('select genre and date range'):
+with st.popover('Select genre and date range'):
   # Input widgets
   ## Genres selection
   genres_list = df.genre.unique()
