@@ -60,8 +60,10 @@ with st.popover('Chat with the data'):
   for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
+  chat_container = st.container(height=300)
   # React to user input
   if prompt := st.chat_input("Ask me about the data"):
+  with chat_container:
     # Display user message in chat message container
     st.chat_message("user").markdown(prompt)
     # Add user message to chat history
