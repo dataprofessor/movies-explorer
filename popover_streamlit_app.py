@@ -54,7 +54,7 @@ with st.popover('Want to learn more ask our chatbot'):
   st.markdown("**Chat with the data**")
   # Initialize chat history
   if "messages" not in st.session_state:
-    st.session_state.messages = []
+    st.session_state.messages = ["What is the highest grossing movie category"]
   # Display chat messages from history on app rerun
   for message in st.session_state.messages:
     with st.chat_message(message["role"]):
@@ -65,7 +65,7 @@ with st.popover('Want to learn more ask our chatbot'):
     st.chat_message("user").markdown(prompt)
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
-    response = f"Echo: {prompt}"
+    response = f"Adventure is the highest grossing category"
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
         st.markdown(response)
