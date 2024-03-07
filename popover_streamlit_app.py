@@ -63,12 +63,12 @@ with st.popover('Chat with the data'):
   chat_container = st.container(height=300)
   # React to user input
   if prompt := st.chat_input("Ask me about the data"):
-  with chat_container:
-    # Display user message in chat message container
-    st.chat_message("user").markdown(prompt)
-    # Add user message to chat history
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    response = f"Adventure is the highest grossing category"
+    with chat_container:
+      # Display user message in chat message container
+      st.chat_message("user").markdown(prompt)
+      # Add user message to chat history
+      st.session_state.messages.append({"role": "user", "content": prompt})
+      response = f"Adventure is the highest grossing category"
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
         st.markdown(response)
