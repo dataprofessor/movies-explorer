@@ -50,7 +50,8 @@ chart = alt.Chart(df_chart).mark_line().encode(
             ).properties(height=320)
 st.altair_chart(chart, use_container_width=True)
 
-with st.popover('Want to learn more ask our chatbot'):
+with st.popover('Chat with the data'):
+  container(height=250)
   st.markdown("**Chat with the data**")
   # Initialize chat history
   if "messages" not in st.session_state:
