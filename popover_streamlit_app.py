@@ -51,14 +51,14 @@ chart = alt.Chart(df_chart).mark_line().encode(
 st.altair_chart(chart, use_container_width=True)
 
 with st.popover('Chat with the data'):
-  def create_chat(state_key: str, chat_container, position="inline"):
+  def create_chat(state_key: str, chat_container,):
     if state_key not in st.session_state:
         st.session_state[state_key] = []
 
     for message in st.session_state[state_key]:
         with chat_container.chat_message(message["role"]):
             st.markdown(message["content"])
-    container = st.container() if position == "inline" else st._main
+    container = st.container(100) 
     if prompt := container.chat_input(
         "Chat with me", key=f"{state_key}_input"
     ):
