@@ -7,7 +7,7 @@ import altair as alt
 st.set_page_config(page_title='Interactive Data Explorer', page_icon='📊')
 st.title('📊 Interactive Data Explorer')
 
-# App description
+# App description - Explain functionalities in an expander box
 with st.expander('About this app'):
   st.markdown('**What can this app do?**')
   st.info('This app shows the use of Pandas for data wrangling, Altair for chart creation and editable dataframe for data interaction.')
@@ -16,31 +16,33 @@ with st.expander('About this app'):
   
 st.subheader('Which Movie Genre performs ($) best at the box office?')
 
-# Load data
+# Load data - Read CSV into a Pandas DataFrame
 df = pd.read_csv('data/movies_genres_summary.csv')
 df.year = df.year.astype('int')
 
-# Genres selection
+# Genres selection - Create dropdown menu for genre selection
 genres_list = df.genre.unique()
 genres_selection = st.multiselect('Select genres', genres_list, ['Action', 'Adventure', 'Biography', 'Comedy', 'Drama', 'Horror'])
 
-# Year selection
+# Year selection - Create slider for year range selection
 year_list = df.year.unique()
 year_selection = st.slider('Select year duration', 1986, 2006, (2000, 2016))
 year_selection_list = list(np.arange(year_selection[0], year_selection[1]+1))
 
-# Subset data
+# Subset data - Filter DataFrame based on selections
 df_selection = df[df.genre.isin(genres_selection) & df['year'].isin(year_selection_list)]
 reshaped_df = df_selection.pivot_table(index='year', columns='genre', values='gross', aggfunc='sum', fill_value=0)
 reshaped_df = reshaped_df.sort_values(by='year', ascending=False)
 
-# Display DataFrame
+# Editable DataFrame - Allow users to made live edits to the DataFrame
 df_editor = st.data_editor(reshaped_df, height=212, use_container_width=True,
                             column_config={"year": st.column_config.TextColumn("Year")},
                             num_rows="dynamic")
+
+# Data preparation - Prepare data for charting
 df_chart = pd.melt(df_editor.reset_index(), id_vars='year', var_name='genre', value_name='gross')
 
-# Display chart
+# Display line chart
 chart = alt.Chart(df_chart).mark_line().encode(
             x=alt.X('year:N', title='Year'),
             y=alt.Y('gross:Q', title='Gross earnings ($)'),
