@@ -7,6 +7,7 @@ import altair as alt
 st.set_page_config(page_title='Interactive Data Explorer', page_icon='📊')
 st.title('📊 Interactive Data Explorer')
 
+# App description
 with st.expander('About this app'):
   st.markdown('**What can this app do?**')
   st.info('This app shows the use of Pandas for data wrangling, Altair for chart creation and editable dataframe for data interaction.')
